@@ -3,9 +3,14 @@ import React from "react";
 
 const Register = () => {
   return (
-    <View className="flex ">
-      <Text className="text-3xl text-red-500">Register</Text>
-      <Image className="" source={require("../assets/pic2.png")} />
+    <View className="flex items-center ">
+      <Text className="">Register</Text>
+
+      <Image
+        resizeMode="contain"
+        className="w-full max-h-[30vh]"
+        source={require("../assets/pic2.png")}
+      />
     </View>
   );
 };
