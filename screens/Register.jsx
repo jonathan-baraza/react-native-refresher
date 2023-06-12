@@ -43,7 +43,10 @@ const Register = () => {
           placeholder="Confirm Password"
         />
 
-        <TouchableOpacity className="bg-[#6c63ff] mt-4 p-3 rounded-2xl w-full">
+        <TouchableOpacity
+          activeOpacity={0.9}
+          className="bg-[#6c63ff] mt-4 p-3 rounded-2xl w-full"
+        >
           <Text className="text-white mx-auto">Submit</Text>
         </TouchableOpacity>
       </View>
