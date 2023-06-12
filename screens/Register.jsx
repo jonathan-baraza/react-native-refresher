@@ -19,7 +19,7 @@ const Register = () => {
           className="w-full max-h-[30vh]"
           source={require("../assets/pic2.png")}
         />
-        <Text className="font-bold  text-2xl mb-4">Register</Text>
+        <Text className="font-bold  text-2xl mb-6">REGISTER</Text>
 
         <TextInput
           inputMode=""
