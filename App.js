@@ -1,13 +1,16 @@
 import { Text, View, StyleSheet } from "react-native";
+import Register from "./screens/Register";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Kinging all the way</Text>
+      <Register />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex: 1,
+  },
 });
