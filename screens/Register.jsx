@@ -45,10 +45,13 @@ const Register = () => {
 
         <TouchableOpacity
           activeOpacity={0.9}
-          className="bg-[#6c63ff] mt-4 p-3 rounded-2xl w-full"
+          className="bg-[#6c63ff] my-4 p-3 rounded-2xl w-full"
         >
           <Text className="text-white mx-auto">Submit</Text>
         </TouchableOpacity>
+        <Text>Already have an account?</Text>
+
+        <Text className="text-[#6c63ff] mt-2">Login</Text>
       </View>
     </SafeAreaView>
   );
