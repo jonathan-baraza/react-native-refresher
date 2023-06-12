@@ -23,9 +23,23 @@ const Register = () => {
 
         <TextInput
           inputMode=""
-          className="border px-4 py-2 border-gray-300 rounded-3xl w-full"
+          className="border mb-4 px-4 py-2 border-gray-300 rounded-3xl w-full"
           placeholder="Email"
         />
+        <TextInput
+          secureTextEntry={true}
+          className="border mb-4  px-4 py-2 border-gray-300 rounded-3xl w-full"
+          placeholder="Password"
+        />
+        <TextInput
+          secureTextEntry={true}
+          className="border mb-4  px-4 py-2 border-gray-300 rounded-3xl w-full"
+          placeholder="Confirm Password"
+        />
+
+        {/* <TouchableOpacity className="bg-[#6c63ff] mt-4 p-3 rounded-2xl w-full">
+          <Text className="text-white mx-auto">Submit</Text>
+        </TouchableOpacity> */}
       </View>
     </SafeAreaView>
   );
