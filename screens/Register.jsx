@@ -5,7 +5,6 @@ const Register = () => {
   return (
     <View className="flex items-center ">
       <Text className="">Register</Text>
-
       <Image
         resizeMode="contain"
         className="w-full max-h-[30vh]"
