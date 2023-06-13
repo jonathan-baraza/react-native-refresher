@@ -27,6 +27,7 @@ export default function App() {
         <Button title="ADD NOTE" />
       </View>
       <View className="bg-red-100 flex-1 px-6">
+        {/* RenderItem's param must be called Item??? */}
         <FlatList
           data={notes}
           keyExtractor={(item, index) => index}
