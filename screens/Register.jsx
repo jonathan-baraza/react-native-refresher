@@ -22,13 +22,11 @@ const Register = () => {
         <Text className="font-bold  text-2xl mb-6">REGISTER</Text>
 
         <TextInput
-          inputMode=""
           className="border mb-4 px-4 py-2 border-gray-300 rounded-3xl w-full"
           placeholder="Username"
         />
 
         <TextInput
-          inputMode=""
           className="border mb-4 px-4 py-2 border-gray-300 rounded-3xl w-full"
           placeholder="Email"
         />
