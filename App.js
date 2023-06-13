@@ -28,6 +28,8 @@ export default function App() {
         <TextInput
           placeholder="Add your note here"
           className="border py-2 px-3 flex-1 rounded-xl  mr-2 border-gray-400"
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
         />
         <Button title="ADD NOTE" onPress={handleAddNote} />
       </View>
