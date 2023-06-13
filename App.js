@@ -12,11 +12,11 @@ import NoteItem from "./components/notes/NoteItem";
 import { useState } from "react";
 
 export default function App() {
-  const [notes, setNotes] = useState(["one", "two"]);
-  const [note, setNote] = useState("");
+  const [allNotes, setAllNotes] = useState(["one", "two"]);
+  const [note, setNote] = useState("dafdsdf");
 
   const handleAddNote = () => {
-    // setNotes([...notes])
+    // setAllNotes([...notes])
   };
   return (
     <View style={styles.container}>
@@ -29,14 +29,15 @@ export default function App() {
           placeholder="Add your note here"
           className="border py-2 px-3 flex-1 rounded-xl  mr-2 border-gray-400"
           value={note}
-          onChange={(e) => setNote(e.target.value)}
+          onChange={setNote}
         />
         <Button title="ADD NOTE" onPress={handleAddNote} />
       </View>
       <View className="bg-red-100 flex-1 px-6">
         {/* RenderItem's param must be called Item??? */}
+        <Text>{note}</Text>
         <FlatList
-          data={notes}
+          data={allNotes}
           keyExtractor={(item, index) => index}
           renderItem={({ item }) => <NoteItem note={item} />}
         />
