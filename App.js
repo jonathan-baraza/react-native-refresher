@@ -16,7 +16,7 @@ export default function App() {
   const [note, setNote] = useState("dafdsdf");
 
   const handleAddNote = () => {
-    // setAllNotes([...notes])
+    setAllNotes([...allNotes, note]);
   };
   return (
     <View style={styles.container}>
@@ -35,7 +35,7 @@ export default function App() {
       </View>
       <View className="bg-red-100 flex-1 px-6">
         {/* RenderItem's param must be called Item??? */}
-        <Text>{typeof note}</Text>
+
         <FlatList
           data={allNotes}
           keyExtractor={(item, index) => index}
