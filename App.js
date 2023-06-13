@@ -13,6 +13,10 @@ import { useState } from "react";
 
 export default function App() {
   const [notes, setNotes] = useState(["one", "two"]);
+
+  const handleAddNote=()=>{
+    
+  }
   return (
     <View style={styles.container}>
       <View className="my-4 flex flex-row justify-center">
