@@ -24,7 +24,7 @@ export default function App() {
           placeholder="Add your note here"
           className="border py-2 px-3 flex-1 rounded-xl  mr-2 border-gray-400"
         />
-        <Button title="ADD NOTE" />
+        <Button title="ADD NOTE" onPress={handleAddNote} />
       </View>
       <View className="bg-red-100 flex-1 px-6">
         {/* RenderItem's param must be called Item??? */}
