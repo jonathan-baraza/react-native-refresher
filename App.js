@@ -16,7 +16,8 @@ export default function App() {
   const [note, setNote] = useState("dafdsdf");
 
   const handleAddNote = () => {
-    setAllNotes([...allNotes, note]);
+    // setAllNotes([...allNotes, note]);
+    setAllNotes([note, ...allNotes]);
     setNote("");
   };
   return (
