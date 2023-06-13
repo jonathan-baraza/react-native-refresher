@@ -17,8 +17,10 @@ export default function App() {
 
   const handleAddNote = () => {
     // setAllNotes([...allNotes, note]);
-    setAllNotes([note, ...allNotes]);
-    setNote("");
+    if (note) {
+      setAllNotes([note, ...allNotes]);
+      setNote("");
+    }
   };
   return (
     <View style={styles.container}>
