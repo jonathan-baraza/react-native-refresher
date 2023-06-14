@@ -12,7 +12,7 @@ import NoteItem from "./components/notes/NoteItem";
 import { useState } from "react";
 
 export default function App() {
-  const [allNotes, setAllNotes] = useState(["one", "two"]);
+  const [allNotes, setAllNotes] = useState([]);
   const [note, setNote] = useState("dafdsdf");
 
   const handleAddNote = () => {
