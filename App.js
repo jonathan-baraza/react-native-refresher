@@ -28,7 +28,7 @@ export default function App() {
   };
 
   const handleDeleteNote = (index) => {
-    Alert.alert("deleting " + index, "please wait");
+    setAllNotes(allNotes.filter((note, idx) => idx !== index));
   };
 
   const handleItemPressed = (index) => {
