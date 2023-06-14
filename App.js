@@ -26,6 +26,10 @@ export default function App() {
     }
   };
 
+  const handleItemPressed=()=>{
+    
+  }
+
   // useEffect(() => {
   //   scrollRef?.current?.scrollToEnd({ animated: true });
   // }, [allNotes]);
@@ -52,7 +56,9 @@ export default function App() {
           scrollToOverflowEnabled
           data={allNotes}
           keyExtractor={(item, index) => index}
-          renderItem={({ item }) => <NoteItem note={item} />}
+          renderItem={({ item }) => (
+            <NoteItem onPress={handleItemPressed} note={item} />
+          )}
         />
         {/* <ScrollView ref={scrollRef}>
           {allNotes &&
