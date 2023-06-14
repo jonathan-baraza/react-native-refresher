@@ -1,11 +1,13 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableWithoutFeedback } from "react-native";
 import React from "react";
 
-const NoteItem = ({ note }) => {
+const NoteItem = ({ note, onPress }) => {
   return (
-    <View className="border-2 border-red-300 mt-3 rounded p-3 bg-white">
-      <Text>{note}</Text>
-    </View>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View className="border-2 border-red-300 mt-3 rounded p-3 bg-white">
+        <Text>{note}</Text>
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 

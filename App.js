@@ -62,8 +62,8 @@ export default function App() {
           scrollToOverflowEnabled
           data={allNotes}
           keyExtractor={(item, index) => index}
-          renderItem={({ item }) => (
-            <NoteItem onPress={handleItemPressed} note={item} />
+          renderItem={({ item, index }) => (
+            <NoteItem onPress={handleItemPressed} note={item} index={index} />
           )}
         />
         {/* <ScrollView ref={scrollRef}>
