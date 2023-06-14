@@ -15,7 +15,7 @@ import { useState, useRef, useEffect } from "react";
 export default function App() {
   const [allNotes, setAllNotes] = useState([]);
   const [note, setNote] = useState("dafdsdf");
-  const scrollRef = useRef(null);
+  // const scrollRef = useRef(null);
 
   const handleAddNote = () => {
     // setAllNotes([...allNotes, note]);
@@ -26,9 +26,9 @@ export default function App() {
     }
   };
 
-  useEffect(() => {
-    scrollRef?.current?.scrollToEnd({ animated: true });
-  }, [allNotes]);
+  // useEffect(() => {
+  //   scrollRef?.current?.scrollToEnd({ animated: true });
+  // }, [allNotes]);
 
   return (
     <View style={styles.container}>
@@ -47,16 +47,17 @@ export default function App() {
       </View>
       <View className="bg-red-100 flex-1 px-6 py-4">
         {/* RenderItem's param must be called Item??? */}
-        {/* 
+
         <FlatList
+          scrollToOverflowEnabled
           data={allNotes}
           keyExtractor={(item, index) => index}
           renderItem={({ item }) => <NoteItem note={item} />}
-        /> */}
-        <ScrollView ref={scrollRef}>
+        />
+        {/* <ScrollView ref={scrollRef}>
           {allNotes &&
             allNotes.map((note, index) => <NoteItem key={index} note={note} />)}
-        </ScrollView>
+        </ScrollView> */}
       </View>
     </View>
   );
