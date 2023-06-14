@@ -3,7 +3,7 @@ import React from "react";
 
 const NoteItem = ({ note }) => {
   return (
-    <View className="border-2 border-red-300 mt-3 rounded-xl p-3 bg-white">
+    <View className="border-2 border-red-300 mt-3 rounded p-3 bg-white">
       <Text>{note}</Text>
     </View>
   );

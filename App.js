@@ -45,6 +45,7 @@ export default function App() {
           keyExtractor={(item, index) => index}
           renderItem={({ item }) => <NoteItem note={item} />}
         />
+        
         {/* {notes && notes.map((note, index) => <NoteItem note={note} />)} */}
       </View>
     </View>
