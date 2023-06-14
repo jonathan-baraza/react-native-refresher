@@ -7,6 +7,7 @@ import {
   StatusBar,
   FlatList,
   ScrollView,
+  Alert,
 } from "react-native";
 import Register from "./screens/Register";
 import NoteItem from "./components/notes/NoteItem";
@@ -26,9 +27,14 @@ export default function App() {
     }
   };
 
-  const handleItemPressed=()=>{
-    
-  }
+  const handleDeleteNote = () => {};
+
+  const handleItemPressed = () => {
+    Alert.alert("Warning", "Are you sure you want to delete this item?", [
+      { text: "CLOSE" },
+      { text: "OK", onPress: () => handleDeleteNote() },
+    ]);
+  };
 
   // useEffect(() => {
   //   scrollRef?.current?.scrollToEnd({ animated: true });
