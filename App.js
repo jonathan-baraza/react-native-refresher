@@ -6,22 +6,30 @@ import {
   Button,
   StatusBar,
   FlatList,
+  ScrollView,
 } from "react-native";
 import Register from "./screens/Register";
 import NoteItem from "./components/notes/NoteItem";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function App() {
   const [allNotes, setAllNotes] = useState([]);
   const [note, setNote] = useState("dafdsdf");
+  const scrollRef = useRef(null);
 
   const handleAddNote = () => {
     // setAllNotes([...allNotes, note]);
     if (note) {
-      setAllNotes([note, ...allNotes]);
+      // setAllNotes([note, ...allNotes]);
+      setAllNotes([...allNotes, note]);
       setNote("");
     }
   };
+
+  useEffect(() => {
+    scrollRef?.current?.scrollToEnd({ animated: true });
+  }, [allNotes]);
+
   return (
     <View style={styles.container}>
       <View className="my-4 flex flex-row justify-center">
@@ -37,16 +45,18 @@ export default function App() {
         />
         <Button title="ADD NOTE" onPress={handleAddNote} />
       </View>
-      <View className="bg-red-100 flex-1 px-6">
+      <View className="bg-red-100 flex-1 px-6 py-4">
         {/* RenderItem's param must be called Item??? */}
-
+        {/* 
         <FlatList
           data={allNotes}
           keyExtractor={(item, index) => index}
           renderItem={({ item }) => <NoteItem note={item} />}
-        />
-        
-        {/* {notes && notes.map((note, index) => <NoteItem note={note} />)} */}
+        /> */}
+        <ScrollView ref={scrollRef}>
+          {allNotes &&
+            allNotes.map((note, index) => <NoteItem key={index} note={note} />)}
+        </ScrollView>
       </View>
     </View>
   );
