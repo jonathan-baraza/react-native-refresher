@@ -27,15 +27,16 @@ export default function App() {
     }
   };
 
-  const handleDeleteNote = () => {};
+  const handleDeleteNote = (index) => {
+    Alert.alert("deleting " + index, "please wait");
+  };
 
   const handleItemPressed = (index) => {
     console.log("index here ", index);
-    Alert.alert(
-      "Warning",
-      `Are you sure you want to delete this item at index  ${index}`,
-      [{ text: "CLOSE" }, { text: "OK", onPress: () => handleDeleteNote() }]
-    );
+    Alert.alert("Warning", "Are you sure you want to delete this item ?", [
+      { text: "CLOSE" },
+      { text: "OK", onPress: () => handleDeleteNote(index) },
+    ]);
   };
 
   // useEffect(() => {
