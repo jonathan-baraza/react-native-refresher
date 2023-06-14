@@ -15,7 +15,7 @@ import { useState, useRef, useEffect } from "react";
 
 export default function App() {
   const [allNotes, setAllNotes] = useState([]);
-  const [note, setNote] = useState("dafdsdf");
+  const [note, setNote] = useState("");
   // const scrollRef = useRef(null);
 
   const handleAddNote = () => {
@@ -29,11 +29,13 @@ export default function App() {
 
   const handleDeleteNote = () => {};
 
-  const handleItemPressed = () => {
-    Alert.alert("Warning", "Are you sure you want to delete this item?", [
-      { text: "CLOSE" },
-      { text: "OK", onPress: () => handleDeleteNote() },
-    ]);
+  const handleItemPressed = (index) => {
+    console.log("index here ", index);
+    Alert.alert(
+      "Warning",
+      `Are you sure you want to delete this item at index  ${index}`,
+      [{ text: "CLOSE" }, { text: "OK", onPress: () => handleDeleteNote() }]
+    );
   };
 
   // useEffect(() => {
