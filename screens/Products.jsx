@@ -18,8 +18,10 @@ const Products = () => {
 
   const fetchProducts = async () => {
     const response = await axios.get("https://dummyjson.com/products");
-    setAllProducts(response.data.products);
-    setLoading(false);
+    if (response) {
+      setAllProducts(response.data.products);
+      setLoading(false);
+    }
     // scrollRef.current.scrollToEnd({ animated: true });
   };
 
