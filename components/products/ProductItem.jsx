@@ -3,7 +3,7 @@ import React from "react";
 
 const ProductItem = ({ product }) => {
   return (
-    <View className="flex-1 space-x-2 w-full flex-row">
+    <View className="flex-1 space-x-2 w-full flex-row border-b border-b-gray-300 py-2">
       <Image
         source={{ uri: product.images[0] }}
         className="w-1/4 h-[80px]"
