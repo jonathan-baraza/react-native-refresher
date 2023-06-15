@@ -8,6 +8,7 @@ import {
   FlatList,
   ScrollView,
   Alert,
+  Pressable,
 } from "react-native";
 import Register from "./screens/Register";
 import NoteItem from "./components/notes/NoteItem";
@@ -32,7 +33,6 @@ export default function App() {
   };
 
   const handleItemPressed = (index) => {
-    console.log("index here ", index);
     Alert.alert("Warning", "Are you sure you want to delete this item ?", [
       { text: "CLOSE" },
       { text: "OK", onPress: () => handleDeleteNote(index) },
@@ -60,13 +60,14 @@ export default function App() {
       </View>
       <View className="bg-red-100 flex-1 px-6 py-4">
         {/* RenderItem's param must be called Item??? */}
-
         <FlatList
           scrollToOverflowEnabled
           data={allNotes}
           keyExtractor={(item, index) => index}
           renderItem={({ item, index }) => (
-            <NoteItem onPress={handleItemPressed} note={item} index={index} />
+            <Pressable onPress={() => handleItemPressed(index)}>
+              <NoteItem note={item} />
+            </Pressable>
           )}
         />
         {/* <ScrollView ref={scrollRef}>
