@@ -14,12 +14,13 @@ const Products = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // const scrollRef = useRef(null);
+  //   const scrollRef = useRef(null);
 
   const fetchProducts = async () => {
     const response = await axios.get("https://dummyjson.com/products");
     setAllProducts(response.data.products);
     setLoading(false);
+    // scrollRef.current.scrollToEnd({ animated: true });
   };
 
   const handleDeleteProduct = (index) => {
@@ -65,8 +66,9 @@ const Products = () => {
           </View>
         ) : (
           <FlatList
-            showsHorizontalScrollIndicator={false}
-            scrollToOverflowEnabled
+            // ref={scrollRef}
+
+            showsVerticalScrollIndicator={false}
             data={allProducts}
             keyExtractor={(item, index) => index}
             renderItem={({ item, index }) => (
