@@ -72,7 +72,7 @@ const Products = () => {
 
             showsVerticalScrollIndicator={false}
             data={allProducts}
-            keyExtractor={(item, index) => index}
+            keyExtractor={(item) => item.id}
             renderItem={({ item, index }) => (
               <Pressable onPress={() => handleProductPressed(index)}>
                 <ProductItem product={item} />
