@@ -1,11 +1,13 @@
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 import React from "react";
 import Notes from "./screens/Notes";
+import Register from "./screens/Register";
+import Products from "./screens/Products";
 
 const App = () => {
   return (
     <View className="flex-1" style={styles.container}>
-      <Notes />
+      <Products />
     </View>
   );
 };
