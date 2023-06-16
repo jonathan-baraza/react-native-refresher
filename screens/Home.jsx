@@ -11,6 +11,16 @@ import { fetchAllProducts } from "../utils/products";
 export default function componentName() {
   const [allProducts, setAllProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const colors = [
+    "red",
+    "pink",
+    "green",
+    "orange",
+    "blue",
+    "yellow",
+    "teal",
+    "violet",
+  ];
 
   const fetchProducts = async () => {
     const products = await fetchAllProducts();
@@ -34,12 +44,16 @@ export default function componentName() {
       ) : (
         <>
           {allProducts ? (
-            <View className="flex-1">
+            <View className="flex space-2 flex-row">
               <FlatList
                 data={allProducts}
                 keyExtractor={(product) => product.id}
-                renderItem={({ item }) => (
-                  <View>
+                renderItem={({ item, index }) => (
+                  <View
+                    className={`w-1/2 h-[200px] bg-red-${
+                      colors[index] || "red"
+                    }`}
+                  >
                     <Text>{item.title}</Text>
                   </View>
                 )}
