@@ -9,6 +9,7 @@ import {
 import { useState, useEffect, useRef } from "react";
 import ProductItem from "../components/products/ProductItem";
 import axios from "axios";
+import { fetchAllProducts } from "../utils/products";
 
 const Products = () => {
   const [allProducts, setAllProducts] = useState([]);
@@ -17,9 +18,9 @@ const Products = () => {
   //   const scrollRef = useRef(null);
 
   const fetchProducts = async () => {
-    const response = await axios.get("https://dummyjson.com/products");
-    if (response) {
-      setAllProducts(response.data.products);
+    const products = await fetchAllProducts();
+    if (products) {
+      setAllProducts(products);
       setLoading(false);
     }
     // scrollRef.current.scrollToEnd({ animated: true });
