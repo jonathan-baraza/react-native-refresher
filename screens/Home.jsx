@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+  FlatList,
+} from "react-native";
 import { fetchAllProducts } from "../utils/products";
 
 export default function componentName() {
@@ -7,7 +13,7 @@ export default function componentName() {
   const [loading, setLoading] = useState(true);
 
   const fetchProducts = async () => {
-    const products = fetchAllProducts();
+    const products = await fetchAllProducts();
     if (products) {
       setAllProducts(products);
     } else {
@@ -16,7 +22,7 @@ export default function componentName() {
     setLoading(false);
   };
   useEffect(() => {
-    fetchAllProducts();
+    fetchProducts();
   }, []);
   return (
     <View className="flex-1">
@@ -28,11 +34,19 @@ export default function componentName() {
       ) : (
         <>
           {allProducts ? (
-            <View>
-              <Text>{allProducts.length}</Text>
+            <View className="flex-1">
+              <FlatList
+                data={allProducts}
+                keyExtractor={(product) => product.id}
+                renderItem={({ item }) => (
+                  <View>
+                    <Text>{item.title}</Text>
+                  </View>
+                )}
+              />
             </View>
           ) : (
-            <View>
+            <View className="flex-1 items-center justify-center">
               <Text className="text-red-500">Failed to fetch products</Text>
             </View>
           )}
