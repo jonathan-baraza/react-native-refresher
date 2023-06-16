@@ -1,3 +1,5 @@
+
+
 export const fetchAllProducts = async () => {
   try {
     const response = await axios.get("https://dummyjson.com/products");
