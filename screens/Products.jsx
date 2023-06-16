@@ -22,6 +22,9 @@ const Products = () => {
     if (products) {
       setAllProducts(products);
       setLoading(false);
+    } else {
+      setLoading(false);
+      setAllProducts(null);
     }
     // scrollRef.current.scrollToEnd({ animated: true });
   };
@@ -68,18 +71,25 @@ const Products = () => {
             <ActivityIndicator size={"large"} />
           </View>
         ) : (
-          <FlatList
-            // ref={scrollRef}
-
-            showsVerticalScrollIndicator={false}
-            data={allProducts}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item, index }) => (
-              <Pressable onPress={() => handleProductPressed(index)}>
-                <ProductItem product={item} />
-              </Pressable>
+          <>
+            {allProducts ? (
+              <FlatList
+                // ref={scrollRef}
+                showsVerticalScrollIndicator={false}
+                data={allProducts}
+                keyExtractor={(item) => item.id}
+                renderItem={({ item, index }) => (
+                  <Pressable onPress={() => handleProductPressed(index)}>
+                    <ProductItem product={item} />
+                  </Pressable>
+                )}
+              />
+            ) : (
+              <View className="flex-1 items-center justify-center p-4">
+                <Text className="text-red-400">Failed to fetch products</Text>
+              </View>
             )}
-          />
+          </>
         )}
       </View>
     </View>
