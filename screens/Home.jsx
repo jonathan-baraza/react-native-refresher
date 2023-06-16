@@ -44,17 +44,29 @@ export default function componentName() {
       ) : (
         <>
           {allProducts ? (
-            <View className="flex space-2 flex-row">
+            <View className="flex-1">
               <FlatList
+                numColumns={2}
+                horizontal={false}
+                contentContainerStyle={{
+                  display: "flex",
+                  flexDirection: "row",
+                  marginTop: 30,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexWrap: "wrap",
+                }}
                 data={allProducts}
                 keyExtractor={(product) => product.id}
                 renderItem={({ item, index }) => (
                   <View
-                    className={`w-1/2 h-[200px] bg-red-${
+                    className={`w-[150px] m-4  items-center justify-center  h-[200px] border border-gray-200 bg-${
                       colors[index] || "red"
-                    }`}
+                    }-400`}
                   >
-                    <Text>{item.title}</Text>
+                    <Text className="text-center">
+                      {item.title} {colors[index]}
+                    </Text>
                   </View>
                 )}
               />
