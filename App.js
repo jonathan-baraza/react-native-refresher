@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, StatusBar } from "react-native";
+import { View, Text, StyleSheet, StatusBar, Button } from "react-native";
 import React from "react";
 import Notes from "./screens/Notes";
 import Register from "./screens/Register";
@@ -8,16 +8,27 @@ import Favorites from "./components/products/favoriteItem/index.jsx";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ProductDetails from "./components/products/productDetails";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const BottomTabs = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="productsListing" component={ProductListing} />
+      <Tab.Screen name="favorites" component={Favorites} />
+    </Tab.Navigator>
+  );
+};
+
 const App = () => {
   return (
     <View className="flex-1" style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="productListing" component={ProductListing} />
+          <Stack.Screen name="bottomTabs" component={BottomTabs} />
           <Stack.Screen name="productDetails" component={ProductDetails} />
-          <Stack.Screen name="favorites" component={Favorites} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
