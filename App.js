@@ -16,8 +16,16 @@ const Tab = createBottomTabNavigator();
 const BottomTabs = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="productsListing" component={ProductListing} />
-      <Tab.Screen name="favorites" component={Favorites} />
+      <Tab.Screen
+        options={{ headerShown: false }}
+        name="productsListing"
+        component={ProductListing}
+      />
+      <Tab.Screen
+        options={{ headerShown: false }}
+        name="favorites"
+        component={Favorites}
+      />
     </Tab.Navigator>
   );
 };
