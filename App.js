@@ -4,11 +4,12 @@ import Notes from "./screens/Notes";
 import Register from "./screens/Register";
 import Products from "./screens/Products";
 import ProductListing from "./screens/ProductListing";
-
+import Favorites from "./components/products/favoriteItem/index.jsx";
 const App = () => {
   return (
     <View className="flex-1" style={styles.container}>
       <ProductListing />
+      <Favorites />
     </View>
   );
 };
