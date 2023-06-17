@@ -49,18 +49,20 @@ export default function componentName() {
                 numColumns={2}
                 horizontal={false}
                 contentContainerStyle={{
-                  display: "flex",
-                  flexDirection: "row",
                   marginTop: 30,
+                  gap: 10,
+                  
+                  // justifyContent: "center",
                   alignItems: "center",
-                  justifyContent: "center",
-                  flexWrap: "wrap",
+                  // display: "flex",
+                  // flexDirection: "row",
+                  // flexWrap: "wrap",
                 }}
                 data={allProducts}
                 keyExtractor={(product) => product.id}
                 renderItem={({ item, index }) => (
                   <View
-                    className={`w-[150px] m-4  items-center justify-center  h-[200px] border border-gray-200 bg-${
+                    className={`w-[150px]   items-center justify-center  h-[200px] border border-gray-200 bg-${
                       colors[index] || "red"
                     }-400`}
                   >
