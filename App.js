@@ -7,18 +7,20 @@ import ProductListing from "./screens/ProductListing";
 import Favorites from "./components/products/favoriteItem/index.jsx";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import ProductDetails from "./components/products/productDetails";
 
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <View className="flex-1" style={styles.container}>
-          <ProductListing />
-          <Favorites />
-        </View>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View className="flex-1" style={styles.container}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="productListing" component={ProductListing} />
+          <Stack.Screen name="productDetails" component={ProductDetails} />
+          <Stack.Screen name="favorites" component={Favorites} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </View>
   );
 };
 
