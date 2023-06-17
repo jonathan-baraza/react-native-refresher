@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ActivityIndicator,
   FlatList,
+  TouchableOpacity,
 } from "react-native";
 import { fetchAllProducts } from "../utils/products";
 
@@ -55,15 +56,14 @@ export default function componentName() {
                 data={allProducts}
                 keyExtractor={(product) => product.id}
                 renderItem={({ item, index }) => (
-                  <View
-                    className={`w-[150px] m-2   items-center justify-center  h-[200px] border border-gray-200 bg-${
-                      colors[index] || "red"
-                    }-400`}
+                  <TouchableOpacity
+                    style={{ backgroundColor: colors[index] }}
+                    className={`w-[150px] m-2 rounded-lg   items-center justify-center  h-[200px] border border-gray-200`}
                   >
                     <Text className="text-center">
                       {item.title} {colors[index]}
                     </Text>
-                  </View>
+                  </TouchableOpacity>
                 )}
               />
             </View>
