@@ -3,12 +3,12 @@ import React from "react";
 import Notes from "./screens/Notes";
 import Register from "./screens/Register";
 import Products from "./screens/Products";
-import Home from "./screens/Home";
+import ProductListing from "./screens/ProductListing";
 
 const App = () => {
   return (
     <View className="flex-1" style={styles.container}>
-      <Home />
+      <ProductListing />
     </View>
   );
 };
