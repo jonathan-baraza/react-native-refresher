@@ -57,8 +57,11 @@ export default function componentName() {
                 keyExtractor={(product) => product.id}
                 renderItem={({ item, index }) => (
                   <TouchableOpacity
-                    style={{ backgroundColor: colors[index] }}
-                    className={`w-[150px] m-2 rounded-lg   items-center justify-center  h-[200px] border border-gray-200`}
+                    activeOpacity={0.7}
+                    style={{
+                      backgroundColor: colors[index],
+                    }}
+                    className={`w-[150px] m-2 rounded-lg shadow-xl shadow-gray-950  items-center justify-center  h-[200px] border border-gray-200`}
                   >
                     <Text className="text-center">
                       {item.title} {colors[index]}
