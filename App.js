@@ -5,12 +5,20 @@ import Register from "./screens/Register";
 import Products from "./screens/Products";
 import ProductListing from "./screens/ProductListing";
 import Favorites from "./components/products/favoriteItem/index.jsx";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
 const App = () => {
   return (
-    <View className="flex-1" style={styles.container}>
-      <ProductListing />
-      <Favorites />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <View className="flex-1" style={styles.container}>
+          <ProductListing />
+          <Favorites />
+        </View>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
