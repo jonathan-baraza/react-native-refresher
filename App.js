@@ -16,8 +16,16 @@ const Tab = createBottomTabNavigator();
 const BottomTabs = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="productsListing" component={ProductListing} />
-      <Tab.Screen name="favorites" component={Favorites} />
+      <Tab.Screen
+        options={{ title: "Products List" }}
+        name="productsListing"
+        component={ProductListing}
+      />
+      <Tab.Screen
+        options={{ title: "Favorites" }}
+        name="favorites"
+        component={Favorites}
+      />
     </Tab.Navigator>
   );
 };
@@ -32,7 +40,11 @@ const App = () => {
             name="bottomTabs"
             component={BottomTabs}
           />
-          <Stack.Screen name="productDetails" component={ProductDetails} />
+          <Stack.Screen
+            options={{ title: "Product Details" }}
+            name="productDetails"
+            component={ProductDetails}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
