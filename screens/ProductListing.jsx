@@ -22,10 +22,12 @@ const createRandomColor = () => {
   return color;
 };
 
-export default function ProductListing() {
+export default function ProductListing({ navigation }) {
   const { loading, products } = useContext(Context);
 
-  const handleOnPress = () => {};
+  const handleOnPress = (index) => {
+    navigation.navigate("productDetails", { itemIndex: index });
+  };
 
   return (
     <View className="flex-1">
@@ -49,7 +51,7 @@ export default function ProductListing() {
                 keyExtractor={(product) => product.id}
                 renderItem={({ item, index }) => (
                   <ProductListItem
-                    onPress={handleOnPress}
+                    onPress={() => handleOnPress(index)}
                     item={item}
                     color={createRandomColor()}
                   />
