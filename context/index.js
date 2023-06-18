@@ -1,6 +1,6 @@
 import { fetchAllProducts } from "../utils/products";
 import { createContext, useState, useEffect } from "react";
-const Context = createContext(null);
+export const Context = createContext(null);
 
 const ProductContext = ({ children }) => {
   const [products, setProducts] = useState([]);
