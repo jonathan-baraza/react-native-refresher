@@ -10,6 +10,17 @@ import {
 import { Context } from "../context";
 import ProductListItem from "../components/products/productListItem";
 
+const createRandomColor = () => {
+  let letters = "0123456789ABCDEF";
+  let color = "#";
+
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+
+  return color;
+};
+
 export default function ProductListing() {
   const { loading, products } = useContext(Context);
 
@@ -34,7 +45,7 @@ export default function ProductListing() {
                 data={products}
                 keyExtractor={(product) => product.id}
                 renderItem={({ item, index }) => (
-                  <ProductListItem item={item} />
+                  <ProductListItem item={item} color={createRandomColor()} />
                 )}
               />
             </View>
