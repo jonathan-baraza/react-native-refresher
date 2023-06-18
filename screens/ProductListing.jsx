@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   FlatList,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import { Context } from "../context";
 import ProductListItem from "../components/products/productListItem";
@@ -23,6 +24,10 @@ const createRandomColor = () => {
 
 export default function ProductListing() {
   const { loading, products } = useContext(Context);
+
+  const handleOnPress = () => {
+    Alert.alert("Pressed");
+  };
 
   return (
     <View className="flex-1">
@@ -45,7 +50,11 @@ export default function ProductListing() {
                 data={products}
                 keyExtractor={(product) => product.id}
                 renderItem={({ item, index }) => (
-                  <ProductListItem item={item} color={createRandomColor()} />
+                  <ProductListItem
+                    onPress={handleOnPress}
+                    item={item}
+                    color={createRandomColor()}
+                  />
                 )}
               />
             </View>
