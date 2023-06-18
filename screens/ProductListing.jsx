@@ -8,19 +8,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Context } from "../context";
+import ProductListItem from "../components/products/productListItem";
 
 export default function ProductListing() {
   const { loading, products } = useContext(Context);
-  const colors = [
-    "red",
-    "pink",
-    "green",
-    "orange",
-    "blue",
-    "yellow",
-    "teal",
-    "violet",
-  ];
 
   return (
     <View className="flex-1">
@@ -43,17 +34,7 @@ export default function ProductListing() {
                 data={products}
                 keyExtractor={(product) => product.id}
                 renderItem={({ item, index }) => (
-                  <TouchableOpacity
-                    activeOpacity={0.7}
-                    style={{
-                      backgroundColor: colors[index],
-                    }}
-                    className={`w-[150px] m-2 rounded-lg shadow-xl shadow-gray-950  items-center justify-center  h-[200px] border border-gray-200`}
-                  >
-                    <Text className="text-center">
-                      {item.title} {colors[index]}
-                    </Text>
-                  </TouchableOpacity>
+                  <ProductListItem item={item} />
                 )}
               />
             </View>
