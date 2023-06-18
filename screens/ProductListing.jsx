@@ -7,11 +7,8 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
-import { fetchAllProducts } from "../utils/products";
 
 export default function ProductListing() {
-  const [allProducts, setAllProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const colors = [
     "red",
     "pink",
@@ -23,18 +20,6 @@ export default function ProductListing() {
     "violet",
   ];
 
-  const fetchProducts = async () => {
-    const products = await fetchAllProducts();
-    if (products) {
-      setAllProducts(products);
-    } else {
-      setAllProducts(null);
-    }
-    setLoading(false);
-  };
-  useEffect(() => {
-    fetchProducts();
-  }, []);
   return (
     <View className="flex-1">
       {loading ? (
