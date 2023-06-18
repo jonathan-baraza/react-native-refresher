@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
   View,
   Text,
@@ -7,8 +7,10 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
+import ProductContext from "../context";
 
 export default function ProductListing() {
+  const { loading, products } = useContext(ProductContext);
   const colors = [
     "red",
     "pink",
@@ -29,7 +31,7 @@ export default function ProductListing() {
         </View>
       ) : (
         <>
-          {allProducts ? (
+          {products ? (
             <View className="flex-1">
               <FlatList
                 numColumns={2}
@@ -38,7 +40,7 @@ export default function ProductListing() {
                   marginTop: 30,
                   alignItems: "center",
                 }}
-                data={allProducts}
+                data={products}
                 keyExtractor={(product) => product.id}
                 renderItem={({ item, index }) => (
                   <TouchableOpacity
