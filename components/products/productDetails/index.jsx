@@ -1,10 +1,13 @@
-import { View, Text } from "react-native";
-import React from "react";
+import { View, Text, Button } from "react-native";
+import React, { useEffect } from "react";
 
-const ProductDetails = () => {
+const ProductDetails = ({ route, navigation }) => {
+  const { itemIndex } = route.params;
+
+  useEffect(() => {}, []);
   return (
     <View>
-      <Text>ProductDetails</Text>
+      <Text>ProductDetails {itemIndex}</Text>
     </View>
   );
 };
