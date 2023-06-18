@@ -25,9 +25,7 @@ const createRandomColor = () => {
 export default function ProductListing() {
   const { loading, products } = useContext(Context);
 
-  const handleOnPress = () => {
-    Alert.alert("Pressed");
-  };
+  const handleOnPress = () => {};
 
   return (
     <View className="flex-1">
