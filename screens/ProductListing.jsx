@@ -7,10 +7,10 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
-import ProductContext from "../context";
+import { Context } from "../context";
 
 export default function ProductListing() {
-  const { loading, products } = useContext(ProductContext);
+  const { loading, products } = useContext(Context);
   const colors = [
     "red",
     "pink",
