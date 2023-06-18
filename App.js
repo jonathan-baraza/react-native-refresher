@@ -16,16 +16,8 @@ const Tab = createBottomTabNavigator();
 const BottomTabs = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen
-        options={{ headerShown: false }}
-        name="productsListing"
-        component={ProductListing}
-      />
-      <Tab.Screen
-        options={{ headerShown: false }}
-        name="favorites"
-        component={Favorites}
-      />
+      <Tab.Screen name="productsListing" component={ProductListing} />
+      <Tab.Screen name="favorites" component={Favorites} />
     </Tab.Navigator>
   );
 };
@@ -35,7 +27,11 @@ const App = () => {
     <View className="flex-1" style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="bottomTabs" component={BottomTabs} />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="bottomTabs"
+            component={BottomTabs}
+          />
           <Stack.Screen name="productDetails" component={ProductDetails} />
         </Stack.Navigator>
       </NavigationContainer>
