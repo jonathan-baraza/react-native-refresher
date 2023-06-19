@@ -15,3 +15,17 @@ export const fetchAllProducts = async () => {
 
   // scrollRef.current.scrollToEnd({ animated: true });
 };
+
+export const fetchProductDetails = async (index) => {
+  try {
+    const response = await axios.get("https://dummyjson.com/products/" + index);
+    if (response) {
+      return response.data.products;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.log(error.message);
+    return false;
+  }
+};
