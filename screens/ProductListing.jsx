@@ -27,8 +27,8 @@ export default function ProductListing({ navigation }) {
   const { loading, products } = useContext(Context);
   // const navigation = useNavigation();
 
-  const handleOnPress = (index) => {
-    navigation.navigate("productDetails", { itemIndex: index });
+  const handleOnPress = (id) => {
+    navigation.navigate("productDetails", { itemId: id });
   };
 
   return (
@@ -53,7 +53,7 @@ export default function ProductListing({ navigation }) {
                 keyExtractor={(product) => product.id}
                 renderItem={({ item, index }) => (
                   <ProductListItem
-                    onPress={() => handleOnPress(index)}
+                    onPress={() => handleOnPress(item.id)}
                     item={item}
                     color={createRandomColor()}
                   />
