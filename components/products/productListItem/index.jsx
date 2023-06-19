@@ -1,4 +1,10 @@
-import { View, Text, TouchableOpacity, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Pressable,
+  ImageBackground,
+} from "react-native";
 import React from "react";
 
 const ProductListItem = ({ item, color, onPress }) => {
@@ -6,19 +12,29 @@ const ProductListItem = ({ item, color, onPress }) => {
     <Pressable
       android_ripple={{ color: "#ced474" }}
       onPress={onPress}
-      style={{
-        backgroundColor: color,
-      }}
       activeOpacity={0.7}
-      className={`w-[150px] m-2 rounded-lg shadow-xl shadow-gray-950  items-center justify-center px-4  h-[200px] border border-gray-200`}
+      className={`w-[150px] m-2 rounded-lg shadow-xl shadow-gray-950  items-center justify-center  h-[200px] border border-gray-200`}
     >
-      <Text
-        className="text-center font-bold text-white  mx-auto my-auto"
-        numberOfLines={1}
-        ellipsizeMode="tail"
+      <ImageBackground
+        resizeMode="cover"
+        className="flex-1 w-full"
+        source={{ uri: item.thumbnail }}
       >
-        {item.title}
-      </Text>
+        <View
+          className="flex-1  rounded-lg px-4"
+          style={{
+            backgroundColor: color,
+          }}
+        >
+          <Text
+            className="text-center font-bold text-white  mx-auto my-auto"
+            numberOfLines={1}
+            ellipsizeMode="tail"
+          >
+            {item.title}
+          </Text>
+        </View>
+      </ImageBackground>
     </Pressable>
   );
 };
