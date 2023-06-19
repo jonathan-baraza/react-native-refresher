@@ -7,7 +7,16 @@ const ProductDetails = ({ route, navigation }) => {
   const [product, setProduct] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const fetchProduct = async () => {};
+  const fetchProduct = async () => {
+    try {
+      const product = await fetchProductDetails();
+      console.log("product");
+      console.log(product);
+    } catch (error) {
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     fetchProduct();

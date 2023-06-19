@@ -16,9 +16,11 @@ export const fetchAllProducts = async () => {
   // scrollRef.current.scrollToEnd({ animated: true });
 };
 
-export const fetchProductDetails = async (index) => {
+export const fetchProductDetails = async (productId) => {
   try {
-    const response = await axios.get("https://dummyjson.com/products/" + index);
+    const response = await axios.get(
+      "https://dummyjson.com/products/" + productId
+    );
     if (response) {
       return response.data.products;
     } else {
