@@ -12,5 +12,6 @@ export const fetchAllProducts = async () => {
     console.log(error.message);
     return false;
   }
+
   // scrollRef.current.scrollToEnd({ animated: true });
 };
