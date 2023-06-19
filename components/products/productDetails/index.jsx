@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, Text, Button, ActivityIndicator } from "react-native";
+import { View, Text, Button, ActivityIndicator, Image } from "react-native";
 import { fetchProductDetails } from "../../../utils/products";
 
 const ProductDetails = ({ route, navigation }) => {
@@ -34,7 +34,10 @@ const ProductDetails = ({ route, navigation }) => {
     <View className="flex-1">
       {product ? (
         <View>
-          <Text>ProductDetails {product.title}</Text>
+          <Image source={{ uri: product.images[0] }} />
+          <Text>Brand: {product.brand}</Text>
+          <Text>Category: {product.category}</Text>
+          <Text>Description: {product.description}</Text>
         </View>
       ) : (
         <View className="flex-1 items-center justify-center">
