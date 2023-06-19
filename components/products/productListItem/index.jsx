@@ -17,16 +17,20 @@ const ProductListItem = ({ item, color, onPress }) => {
     >
       <ImageBackground
         resizeMode="cover"
-        className="flex-1 w-full"
+        className="flex-1 w-full items-center justify-center"
         source={{ uri: item.thumbnail }}
       >
         <View
-          className="flex-1  rounded-lg px-4"
+          className="  rounded-lg px-4 py-2"
           style={{
             backgroundColor: color,
           }}
         >
           <Text
+            style={{
+              backgroundColor: color,
+              opacity: 1,
+            }}
             className="text-center font-bold text-white  mx-auto my-auto"
             numberOfLines={1}
             ellipsizeMode="tail"
