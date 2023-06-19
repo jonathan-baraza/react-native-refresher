@@ -9,8 +9,6 @@ const ProductContext = ({ children }) => {
     const products = await fetchAllProducts();
     if (products) {
       setProducts(products);
-      console.log("products");
-      console.log(products);
     } else {
       setProducts(null);
     }
