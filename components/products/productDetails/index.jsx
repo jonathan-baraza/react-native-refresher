@@ -34,7 +34,11 @@ const ProductDetails = ({ route, navigation }) => {
     <View className="flex-1">
       {product ? (
         <View>
-          <Image source={{ uri: product.images[0] }} />
+          <Image
+            resizeMode="contain"
+            className="w-full  h-[40vh]"
+            source={{ uri: product.images[0] }}
+          />
           <Text>Brand: {product.brand}</Text>
           <Text>Category: {product.category}</Text>
           <Text>Description: {product.description}</Text>
