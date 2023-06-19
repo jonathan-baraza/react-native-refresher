@@ -10,6 +10,7 @@ const ProductDetails = ({ route, navigation }) => {
   const fetchProduct = async () => {
     try {
       const product = await fetchProductDetails(itemId);
+      setProduct(product);
       console.log("product");
       console.log(product);
     } catch (error) {
@@ -30,8 +31,16 @@ const ProductDetails = ({ route, navigation }) => {
     );
   }
   return (
-    <View>
-      <Text>ProductDetails {itemIndex}</Text>
+    <View className="flex-1">
+      {product ? (
+        <View>
+          <Text>ProductDetails {product.title}</Text>
+        </View>
+      ) : (
+        <View>
+          <Text className="text-red-500">Could not fetch product</Text>
+        </View>
+      )}
     </View>
   );
 };
