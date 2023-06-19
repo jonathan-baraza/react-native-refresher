@@ -3,13 +3,13 @@ import { View, Text, Button, ActivityIndicator } from "react-native";
 import { fetchProductDetails } from "../../../utils/products";
 
 const ProductDetails = ({ route, navigation }) => {
-  const { itemIndex } = route.params;
+  const { itemId } = route.params;
   const [product, setProduct] = useState("");
   const [loading, setLoading] = useState(true);
 
   const fetchProduct = async () => {
     try {
-      const product = await fetchProductDetails();
+      const product = await fetchProductDetails(itemId);
       console.log("product");
       console.log(product);
     } catch (error) {
