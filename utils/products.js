@@ -22,7 +22,7 @@ export const fetchProductDetails = async (productId) => {
       "https://dummyjson.com/products/" + productId
     );
     if (response) {
-      return response.data.products;
+      return response.data;
     } else {
       return false;
     }
