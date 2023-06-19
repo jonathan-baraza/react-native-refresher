@@ -15,7 +15,8 @@ const ProductDetails = ({ route, navigation }) => {
   if (loading) {
     return (
       <View className="flex-1 items-center justify-center">
-        <ActivityIndicator size={"large"} />
+        <ActivityIndicator size="small" />
+        <Text className="mt-3">Fetching product details...</Text>
       </View>
     );
   }
