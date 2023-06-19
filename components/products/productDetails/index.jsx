@@ -37,7 +37,7 @@ const ProductDetails = ({ route, navigation }) => {
           <Text>ProductDetails {product.title}</Text>
         </View>
       ) : (
-        <View>
+        <View className="flex-1 items-center justify-center">
           <Text className="text-red-500">Could not fetch product</Text>
         </View>
       )}
