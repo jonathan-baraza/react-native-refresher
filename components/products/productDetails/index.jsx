@@ -3,9 +3,9 @@ import { View, Text, Button, ActivityIndicator, Image } from "react-native";
 import { fetchProductDetails } from "../../../utils/products";
 import { useRoute, useNavigation } from "@react-navigation/native";
 const ProductDetails = () => {
+  const route = useRoute();
   const { itemId } = route.params;
   //alternatively
-  const route = useRoute();
   const navigation = useNavigation();
 
   const [product, setProduct] = useState("");
@@ -16,22 +16,6 @@ const ProductDetails = () => {
       const product = await fetchProductDetails(itemId);
       setProduct(product);
       //optional update title
-      navigation.setOptions({
-        headerRight: () => (
-          <Button
-            title="Favorite"
-            onPress={() => {
-              ToastAndroid.showWithGravity(
-                "Added to favorites",
-                ToastAndroid.SHORT,
-                ToastAndroid.BOTTOM
-              );
-            }}
-          >
-            <Text>Favorite</Text>
-          </Button>
-        ),
-      });
     } catch (error) {
     } finally {
       setLoading(false);
@@ -39,6 +23,22 @@ const ProductDetails = () => {
   };
 
   useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Button
+          title="Favorites"
+          onPress={() => {
+            ToastAndroid.showWithGravity(
+              "Added to favorites",
+              ToastAndroid.SHORT,
+              ToastAndroid.BOTTOM
+            );
+          }}
+        >
+          <Text>Favorite</Text>
+        </Button>
+      ),
+    });
     fetchProduct();
   }, []);
   if (loading) {
