@@ -44,20 +44,30 @@ const ProductDetails = ({ route, navigation }) => {
             className="w-full  h-[40vh]"
             source={{ uri: product.images[0] }}
           />
-          <View className="flex-row  items-center">
-            <Text className="font-bold  text-base">Brand :</Text>
+          <View className="">
+            <Text className="font-bold  text-base underline mb  mt-2">
+              Brand{" "}
+            </Text>
             <Text className="text-gray-500  text-base"> {product.brand}</Text>
           </View>
-          <View className="flex-row  items-center">
-            <Text className="font-bold  text-base">Category :</Text>
-            <Text className="text-gray-500  text-base"> {product.brand}</Text>
+          <View className="">
+            <Text className="font-bold  text-base underline mb  mt-2">
+              Category{" "}
+            </Text>
+            <Text className="text-gray-500  text-base">
+              {" "}
+              {product.category}
+            </Text>
           </View>
-          <View className="flex-row  items-center">
-            <Text className="font-bold  text-base">Description :</Text>
-            <Text className="text-gray-500  text-base"> {product.brand}</Text>
+          <View className="">
+            <Text className="font-bold  text-base underline mb  mt-2">
+              Description{" "}
+            </Text>
+            <Text className="text-gray-500  text-base">
+              {" "}
+              {product.description}
+            </Text>
           </View>
-
-   
         </View>
       ) : (
         <View className="flex-1 items-center justify-center">
