@@ -61,7 +61,7 @@ const App = () => {
                       ToastAndroid.showWithGravity(
                         "Added to favorites",
                         ToastAndroid.SHORT,
-                        ToastAndroid.CENTER
+                        ToastAndroid.BOTTOM
                       );
                     }}
                   >
