@@ -1,4 +1,12 @@
-import { View, Text, StyleSheet, StatusBar, Button } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  StatusBar,
+  Button,
+  Pressable,
+  ToastAndroid,
+} from "react-native";
 import React from "react";
 import Notes from "./screens/Notes";
 import Register from "./screens/Register";
@@ -18,7 +26,9 @@ const BottomTabs = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        options={{ title: "Products List" }}
+        options={{
+          title: "Products List",
+        }}
         name="productsListing"
         component={ProductListing}
       />
@@ -43,7 +53,22 @@ const App = () => {
               component={BottomTabs}
             />
             <Stack.Screen
-              options={{ title: "Product Details" }}
+              options={{
+                title: "Product Details",
+                headerRight: () => (
+                  <Pressable
+                    onPress={() => {
+                      ToastAndroid.showWithGravity(
+                        "Added to favorites",
+                        ToastAndroid.SHORT,
+                        ToastAndroid.CENTER
+                      );
+                    }}
+                  >
+                    <Text>Favorite</Text>
+                  </Pressable>
+                ),
+              }}
               name="productDetails"
               component={ProductDetails}
             />
