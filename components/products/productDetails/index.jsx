@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { View, Text, Button, ActivityIndicator, Image } from "react-native";
 import { fetchProductDetails } from "../../../utils/products";
-
+import { useRoute } from "@react-navigation/native";
 const ProductDetails = ({ route, navigation }) => {
   const { itemId } = route.params;
+  //alternatively
+  // const route=useRoute();
   const [product, setProduct] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -11,8 +13,6 @@ const ProductDetails = ({ route, navigation }) => {
     try {
       const product = await fetchProductDetails(itemId);
       setProduct(product);
-      console.log("product");
-      console.log(product);
     } catch (error) {
     } finally {
       setLoading(false);
