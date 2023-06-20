@@ -14,7 +14,22 @@ const ProductDetails = ({ route, navigation }) => {
       const product = await fetchProductDetails(itemId);
       setProduct(product);
       //optional update title
-      // navigation.setOptions({ title: product.title });
+      navigation.setOptions({
+        headerRight: () => (
+          <Button
+            title="Favorite"
+            onPress={() => {
+              ToastAndroid.showWithGravity(
+                "Added to favorites",
+                ToastAndroid.SHORT,
+                ToastAndroid.BOTTOM
+              );
+            }}
+          >
+            <Text>Favorite</Text>
+          </Button>
+        ),
+      });
     } catch (error) {
     } finally {
       setLoading(false);
