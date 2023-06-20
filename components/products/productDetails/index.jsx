@@ -44,9 +44,12 @@ const ProductDetails = ({ route, navigation }) => {
             className="w-full  h-[40vh]"
             source={{ uri: product.images[0] }}
           />
-          <Text>Brand: {product.brand}</Text>
-          <Text>Category: {product.category}</Text>
-          <Text>Description: {product.description}</Text>
+          <Text>Brand :</Text>
+          <Text> {product.brand}</Text>
+          <Text>Category :</Text>
+          <Text> {product.category}</Text>
+          <Text>Description: </Text>
+          <Text> {product.description}</Text>
         </View>
       ) : (
         <View className="flex-1 items-center justify-center">
