@@ -13,6 +13,8 @@ const ProductDetails = ({ route, navigation }) => {
     try {
       const product = await fetchProductDetails(itemId);
       setProduct(product);
+      //optional update title
+      // navigation.setOptions({ title: product.title });
     } catch (error) {
     } finally {
       setLoading(false);
@@ -34,6 +36,9 @@ const ProductDetails = ({ route, navigation }) => {
     <View className="flex-1">
       {product ? (
         <View>
+          <Text className="text-xl m-3 underline font-bold">
+            {product.title}
+          </Text>
           <Image
             resizeMode="contain"
             className="w-full  h-[40vh]"
