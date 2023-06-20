@@ -55,19 +55,7 @@ const App = () => {
             <Stack.Screen
               options={{
                 title: "Product Details",
-                headerRight: () => (
-                  <Pressable
-                    onPress={() => {
-                      ToastAndroid.showWithGravity(
-                        "Added to favorites",
-                        ToastAndroid.SHORT,
-                        ToastAndroid.BOTTOM
-                      );
-                    }}
-                  >
-                    <Text>Favorite</Text>
-                  </Pressable>
-                ),
+               
               }}
               name="productDetails"
               component={ProductDetails}
