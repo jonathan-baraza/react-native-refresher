@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { View, Text, Button, ActivityIndicator, Image } from "react-native";
 import { fetchProductDetails } from "../../../utils/products";
-import { useRoute } from "@react-navigation/native";
-const ProductDetails = ({ route, navigation }) => {
+import { useRoute, useNavigation } from "@react-navigation/native";
+const ProductDetails = () => {
   const { itemId } = route.params;
   //alternatively
-  // const route=useRoute();
+  const route = useRoute();
+  const navigation = useNavigation();
+
   const [product, setProduct] = useState("");
   const [loading, setLoading] = useState(true);
 
