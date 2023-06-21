@@ -56,6 +56,17 @@ const ProductDetails = () => {
     });
     fetchProduct();
   }, []);
+
+  const handleAddToFavorite = async () => {
+    if (!reason)
+      return ToastAndroid.show(
+        "Please enter a reason for adding to favorites...",
+        ToastAndroid.SHORT
+      );
+
+    ToastAndroid.show(reason, ToastAndroid.SHORT);
+  };
+
   if (loading) {
     return (
       <View className="flex-1 items-center justify-center">
