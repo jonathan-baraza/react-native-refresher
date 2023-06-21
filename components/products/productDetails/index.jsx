@@ -129,7 +129,7 @@ const ProductDetails = () => {
             }}
           >
             <View className="h-[35vh] rounded-xl my-auto mx-8 bg-white shadow-2xl p-3 border  border-gray-100">
-              <Text className="text-center mx-auto font-bold text-base my-2">
+              <Text className="text-center mx-auto font-bold text-base mt-2 mb-3">
                 Adding to favories
               </Text>
               <TextInput
@@ -137,7 +137,7 @@ const ProductDetails = () => {
                 placeholder="Why do you like this product?"
               />
 
-              <View className="p-2 mt-2 flex-row justify-around">
+              <View className="p-2 my-2 flex-row justify-around">
                 <Pressable
                   className="bg-red-400 w-[40%] text-center flex items-center rounded-xl p-2 cursor-pointer "
                   onPress={() => setModalVisible(!modalVisible)}
@@ -146,7 +146,9 @@ const ProductDetails = () => {
                 </Pressable>
                 <Pressable
                   className="bg-green-500 w-[40%] text-center flex items-center rounded-xl p-2 cursor-pointer "
-                  onPress={() => setModalVisible(!modalVisible)}
+                  onPress={() => {
+                    ToastAndroid.show("Okay", ToastAndroid.SHORT);
+                  }}
                 >
                   <Text className="text-white">Add</Text>
                 </Pressable>
