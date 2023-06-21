@@ -9,6 +9,7 @@ import {
   StyleSheet,
   Pressable,
   ToastAndroid,
+  TextInput,
 } from "react-native";
 import { fetchProductDetails } from "../../../utils/products";
 import { useRoute, useNavigation } from "@react-navigation/native";
@@ -39,11 +40,13 @@ const ProductDetails = () => {
         <Button
           title="Favorites"
           onPress={() => {
-            ToastAndroid.showWithGravity(
-              "Added to favorites",
-              ToastAndroid.SHORT,
-              ToastAndroid.BOTTOM
-            );
+            setModalVisible(true);
+            // ToastAndroid.show("hello there", ToastAndroid.SHORT);
+            // ToastAndroid.showWithGravity(
+            //   "Added to favorites",
+            //   ToastAndroid.SHORT,
+            //   ToastAndroid.BOTTOM
+            // );
           }}
         >
           <Text>Favorite</Text>
@@ -125,7 +128,8 @@ const ProductDetails = () => {
               setModalVisible(!modalVisible);
             }}
           >
-            <View>
+            <View className="min-h-[40vh] rounded-xl my-auto mx-8 bg-white shadow-2xl p-3 border border-gray-100">
+              <TextInput placeholder="Why do you like this product?" />
               <View>
                 <Pressable onPress={() => setModalVisible(!modalVisible)}>
                   <Text>Hide Modal</Text>
