@@ -6,6 +6,8 @@ import {
   ActivityIndicator,
   Image,
   Modal,
+  StyleSheet,
+  Pressable,
 } from "react-native";
 import { fetchProductDetails } from "../../../utils/products";
 import { useRoute, useNavigation } from "@react-navigation/native";
