@@ -139,16 +139,16 @@ const ProductDetails = () => {
 
               <View className="p-2 mt-2 flex-row justify-around">
                 <Pressable
-                  className="bg-red-300 rounded-xl p-2 cursor-pointer "
+                  className="bg-red-400 w-[40%] text-center flex items-center rounded-xl p-2 cursor-pointer "
                   onPress={() => setModalVisible(!modalVisible)}
                 >
-                  <Text className="text-white">Hide Modal</Text>
+                  <Text className="text-white">Close</Text>
                 </Pressable>
                 <Pressable
-                  className="bg-red-300 rounded-xl p-2 cursor-pointer "
+                  className="bg-green-500 w-[40%] text-center flex items-center rounded-xl p-2 cursor-pointer "
                   onPress={() => setModalVisible(!modalVisible)}
                 >
-                  <Text className="text-white">Hide Modal</Text>
+                  <Text className="text-white">Add</Text>
                 </Pressable>
               </View>
             </View>
