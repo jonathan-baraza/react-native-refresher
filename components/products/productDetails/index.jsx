@@ -64,6 +64,7 @@ const ProductDetails = () => {
         ToastAndroid.SHORT
       );
 
+    //continue with add to favorites
     ToastAndroid.show(reason, ToastAndroid.SHORT);
   };
 
