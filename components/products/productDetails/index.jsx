@@ -128,11 +128,27 @@ const ProductDetails = () => {
               setModalVisible(!modalVisible);
             }}
           >
-            <View className="min-h-[40vh] rounded-xl my-auto mx-8 bg-white shadow-2xl p-3 border border-gray-100">
-              <TextInput placeholder="Why do you like this product?" />
-              <View>
-                <Pressable onPress={() => setModalVisible(!modalVisible)}>
-                  <Text>Hide Modal</Text>
+            <View className="h-[35vh] rounded-xl my-auto mx-8 bg-white shadow-2xl p-3 border  border-gray-100">
+              <Text className="text-center mx-auto font-bold text-base my-2">
+                Adding to favories
+              </Text>
+              <TextInput
+                className="border  h-[60%] border-gray-100 rounded-xl p-2"
+                placeholder="Why do you like this product?"
+              />
+
+              <View className="p-2 mt-2 flex-row justify-around">
+                <Pressable
+                  className="bg-red-300 rounded-xl p-2 cursor-pointer "
+                  onPress={() => setModalVisible(!modalVisible)}
+                >
+                  <Text className="text-white">Hide Modal</Text>
+                </Pressable>
+                <Pressable
+                  className="bg-red-300 rounded-xl p-2 cursor-pointer "
+                  onPress={() => setModalVisible(!modalVisible)}
+                >
+                  <Text className="text-white">Hide Modal</Text>
                 </Pressable>
               </View>
             </View>
