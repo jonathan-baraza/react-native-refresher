@@ -22,6 +22,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState("");
   const [loading, setLoading] = useState(true);
   const [modalVisible, setModalVisible] = useState(false);
+  const [reason, setReason] = useState("");
 
   const fetchProduct = async () => {
     try {
@@ -142,6 +143,8 @@ const ProductDetails = () => {
                 <TextInput
                   className="border  h-[60%] border-gray-100 rounded-xl p-2"
                   placeholder="Why do you like this product?"
+                  value={reason}
+                  onChangeText={setReason}
                 />
 
                 <View className="p-2 my-2 flex-row justify-around">
@@ -153,9 +156,7 @@ const ProductDetails = () => {
                   </Pressable>
                   <Pressable
                     className="bg-green-500 w-[40%] text-center flex items-center rounded-xl p-2 cursor-pointer "
-                    onPress={() => {
-                      ToastAndroid.show("Okay", ToastAndroid.SHORT);
-                    }}
+                    onPress={handleAddToFavorite}
                   >
                     <Text className="text-white">Add</Text>
                   </Pressable>
