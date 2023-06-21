@@ -8,6 +8,7 @@ import {
   Modal,
   StyleSheet,
   Pressable,
+  ToastAndroid,
 } from "react-native";
 import { fetchProductDetails } from "../../../utils/products";
 import { useRoute, useNavigation } from "@react-navigation/native";
@@ -124,14 +125,10 @@ const ProductDetails = () => {
               setModalVisible(!modalVisible);
             }}
           >
-            <View style={styles.centeredView}>
-              <View style={styles.modalView}>
-                <Text style={styles.modalText}>Hello World!</Text>
-                <Pressable
-                  style={[styles.button, styles.buttonClose]}
-                  onPress={() => setModalVisible(!modalVisible)}
-                >
-                  <Text style={styles.textStyle}>Hide Modal</Text>
+            <View>
+              <View>
+                <Pressable onPress={() => setModalVisible(!modalVisible)}>
+                  <Text>Hide Modal</Text>
                 </Pressable>
               </View>
             </View>
