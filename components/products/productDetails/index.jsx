@@ -120,7 +120,10 @@ const ProductDetails = () => {
             </View>
           </View>
           <Modal
-            animationType="slide"
+            style={{
+              backgroundColor: "red",
+            }}
+            animationType="fade"
             transparent={true}
             visible={modalVisible}
             onRequestClose={() => {
@@ -128,30 +131,35 @@ const ProductDetails = () => {
               setModalVisible(!modalVisible);
             }}
           >
-            <View className="h-[35vh] rounded-xl my-auto mx-8 bg-white shadow-2xl p-3 border  border-gray-100">
-              <Text className="text-center mx-auto font-bold text-base mt-2 mb-3">
-                Adding to favories
-              </Text>
-              <TextInput
-                className="border  h-[60%] border-gray-100 rounded-xl p-2"
-                placeholder="Why do you like this product?"
-              />
+            <View
+              className="flex-1"
+              style={{ backgroundColor: "rgba(0,0,0,0.3)" }}
+            >
+              <View className="h-[35vh] rounded-xl my-auto mx-8 bg-white shadow-2xl p-3 border  border-gray-100">
+                <Text className="text-center mx-auto font-bold text-base mt-2 mb-3">
+                  Adding to favories
+                </Text>
+                <TextInput
+                  className="border  h-[60%] border-gray-100 rounded-xl p-2"
+                  placeholder="Why do you like this product?"
+                />
 
-              <View className="p-2 my-2 flex-row justify-around">
-                <Pressable
-                  className="bg-red-400 w-[40%] text-center flex items-center rounded-xl p-2 cursor-pointer "
-                  onPress={() => setModalVisible(!modalVisible)}
-                >
-                  <Text className="text-white">Close</Text>
-                </Pressable>
-                <Pressable
-                  className="bg-green-500 w-[40%] text-center flex items-center rounded-xl p-2 cursor-pointer "
-                  onPress={() => {
-                    ToastAndroid.show("Okay", ToastAndroid.SHORT);
-                  }}
-                >
-                  <Text className="text-white">Add</Text>
-                </Pressable>
+                <View className="p-2 my-2 flex-row justify-around">
+                  <Pressable
+                    className="bg-red-400 w-[40%] text-center flex items-center rounded-xl p-2 cursor-pointer "
+                    onPress={() => setModalVisible(!modalVisible)}
+                  >
+                    <Text className="text-white">Close</Text>
+                  </Pressable>
+                  <Pressable
+                    className="bg-green-500 w-[40%] text-center flex items-center rounded-xl p-2 cursor-pointer "
+                    onPress={() => {
+                      ToastAndroid.show("Okay", ToastAndroid.SHORT);
+                    }}
+                  >
+                    <Text className="text-white">Add</Text>
+                  </Pressable>
+                </View>
               </View>
             </View>
           </Modal>
