@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import {
   View,
   Text,
@@ -13,7 +13,9 @@ import {
 } from "react-native";
 import { fetchProductDetails } from "../../../utils/products";
 import { useRoute, useNavigation } from "@react-navigation/native";
+import { Context } from "../../../context";
 const ProductDetails = () => {
+  const { addToFavorites } = useContext(Context);
   const route = useRoute();
   const { itemId } = route.params;
   //alternatively
@@ -42,12 +44,6 @@ const ProductDetails = () => {
           title="Favorites"
           onPress={() => {
             setModalVisible(true);
-            // ToastAndroid.show("hello there", ToastAndroid.SHORT);
-            // ToastAndroid.showWithGravity(
-            //   "Added to favorites",
-            //   ToastAndroid.SHORT,
-            //   ToastAndroid.BOTTOM
-            // );
           }}
         >
           <Text>Favorite</Text>
@@ -64,8 +60,10 @@ const ProductDetails = () => {
         ToastAndroid.SHORT
       );
 
-    //continue with add to favorites
-    ToastAndroid.show(reason, ToastAndroid.SHORT);
+    addToFavorites(product);
+    setModalVisible(false);
+
+    //test redirect after adding
   };
 
   if (loading) {
