@@ -8,7 +8,8 @@ const ProductContext = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [favoriteItems, setFavoriteItems] = useState([]);
 
-  const addToFavorites = () => {
+  const addToFavorites = (product) => {
+    setFavoriteItems([product, ...favoriteItems]);
     ToastAndroid.show("Added to favorites", ToastAndroid.SHORT);
   };
   const fetchProducts = async () => {
