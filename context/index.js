@@ -19,6 +19,12 @@ const ProductContext = ({ children }) => {
     setFavoriteItems([product, ...favoriteItems]);
     ToastAndroid.show("Added to favorites", ToastAndroid.SHORT);
   };
+
+  const removeFromFavorites = (productId) => {
+    setFavoriteItems(favoriteItems.filter((item) => item.id !== productId));
+    ToastAndroid.show("Removed from favorites", ToastAndroid.SHORT);
+  };
+
   const fetchProducts = async () => {
     const products = await fetchAllProducts();
     if (products) {
