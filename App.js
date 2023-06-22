@@ -54,7 +54,7 @@ const App = () => {
             />
             <Stack.Screen
               options={{
-                title: "Product Details",
+                title: "Product",
               }}
               name="productDetails"
               component={ProductDetails}
