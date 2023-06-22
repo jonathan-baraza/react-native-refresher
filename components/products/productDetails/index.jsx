@@ -153,7 +153,7 @@ const ProductDetails = () => {
                   Adding to favories
                 </Text>
                 <TextInput
-                  className="border  h-[60%] border-gray-100 rounded-xl p-2"
+                  className="border  h-[55%] border-gray-100 rounded-xl p-2"
                   placeholder="Why do you like this product?"
                   value={reason}
                   onChangeText={setReason}
