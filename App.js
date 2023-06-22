@@ -12,7 +12,7 @@ import Notes from "./screens/Notes";
 import Register from "./screens/Register";
 import Products from "./screens/Products";
 import ProductListing from "./screens/ProductListing";
-import Favorites from "./components/products/favoriteItem/index.jsx";
+import Favorites from "./components/products/favoriteItems/index.jsx";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ProductDetails from "./components/products/productDetails";

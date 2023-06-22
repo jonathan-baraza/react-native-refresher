@@ -6,11 +6,7 @@ export const Context = createContext(null);
 const ProductContext = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [favoriteItems, setFavoriteItems] = useState([
-    "fav one",
-    "fav two",
-    "fav three",
-  ]);
+  const [favoriteItems, setFavoriteItems] = useState([]);
 
   const addToFavorites = () => {
     ToastAndroid.show("Added to favorites", ToastAndroid.SHORT);
@@ -19,6 +15,7 @@ const ProductContext = ({ children }) => {
     const products = await fetchAllProducts();
     if (products) {
       setProducts(products);
+      setFavoriteItems(products.slice(0, 5));
     } else {
       setProducts(null);
     }
