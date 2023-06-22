@@ -9,7 +9,8 @@ const ProductContext = ({ children }) => {
   const [favoriteItems, setFavoriteItems] = useState([]);
 
   const addToFavorites = (product) => {
-    if (favoriteItems.includes(product)) {
+    const elementExists = favoriteItems.find((item) => item.id === product.id);
+    if (elementExists) {
       return ToastAndroid.show(
         "Product already in favorites",
         ToastAndroid.SHORT
