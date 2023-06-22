@@ -59,8 +59,7 @@ const ProductDetails = () => {
         "Please enter a reason for adding to favorites...",
         ToastAndroid.SHORT
       );
-
-    addToFavorites(product);
+    addToFavorites({ ...product, reason });
     setModalVisible(false);
 
     //test redirect after adding

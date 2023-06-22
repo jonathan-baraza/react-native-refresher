@@ -16,7 +16,6 @@ const ProductContext = ({ children }) => {
     const products = await fetchAllProducts();
     if (products) {
       setProducts(products);
-      setFavoriteItems(products.slice(0, 5));
     } else {
       setProducts(null);
     }
