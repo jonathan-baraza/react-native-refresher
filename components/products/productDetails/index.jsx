@@ -16,7 +16,7 @@ import { fetchProductDetails } from "../../../utils/products";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { Context } from "../../../context";
 const ProductDetails = () => {
-  const { addToFavorites, favorites } = useContext(Context);
+  const { addToFavorites, favoriteItems } = useContext(Context);
   const route = useRoute();
   const { itemId } = route.params;
   //alternatively
@@ -41,13 +41,13 @@ const ProductDetails = () => {
 
   useEffect(() => {
     fetchProduct();
-    if (favorites) {
-      const itemIsFavorite = favorites?.indexOf(
-        (item) => item.id === product.id
-      );
-      setIsFavorite(itemIsFavorite !== -1);
-    }
-  }, [favorites]);
+
+    const itemIsFavorite = favoriteItems?.find(
+      (item) => item.id === product.id
+    );
+
+    setIsFavorite(Boolean(itemIsFavorite));
+  }, [favoriteItems]);
 
   useEffect(() => {
     navigation.setOptions({
@@ -55,6 +55,11 @@ const ProductDetails = () => {
         <Pressable
           android_ripple={{ color: "rgba(255,255,255,0.3)" }}
           onPress={() => {
+            if (isFavorite) {
+              setReason(
+                favoriteItems.find((item) => item.id === product.id)[0].reason
+              );
+            }
             setModalVisible(true);
           }}
           className={`${
