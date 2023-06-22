@@ -39,7 +39,13 @@ const ProductContext = ({ children }) => {
   }, []);
   return (
     <Context.Provider
-      value={{ products, loading, favoriteItems, addToFavorites }}
+      value={{
+        products,
+        loading,
+        favoriteItems,
+        addToFavorites,
+        removeFromFavorites,
+      }}
     >
       {children}
     </Context.Provider>

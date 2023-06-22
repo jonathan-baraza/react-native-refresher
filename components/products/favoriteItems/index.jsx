@@ -3,7 +3,8 @@ import { useContext } from "react";
 import { Context } from "../../../context";
 import ProductItem from "../ProductItem";
 const Favorites = () => {
-  const { favoriteItems, addToFavorites } = useContext(Context);
+  const { favoriteItems, addToFavorites, removeFromFavorites } =
+    useContext(Context);
   return (
     <View className="flex-1 px-6 ">
       {favoriteItems.length > 0 ? (
@@ -11,7 +12,11 @@ const Favorites = () => {
           data={favoriteItems}
           keyExtractor={(item, index) => index}
           renderItem={({ item }) => (
-            <Pressable>
+            <Pressable
+              onLongPress={() => {
+                removeFromFavorites(item.id);
+              }}
+            >
               <ProductItem product={item} isFavorite={true} />
             </Pressable>
           )}
