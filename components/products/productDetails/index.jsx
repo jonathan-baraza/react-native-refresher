@@ -49,22 +49,16 @@ const ProductDetails = () => {
     const itemIsFavorite = await favoriteItems.find(
       (item) => item.id === product.id
     );
-    console.log("favoriteItems");
-    console.log(favoriteItems);
-    console.log("product");
-    console.log(product);
-    console.log("productId");
-    console.log(product.id);
-    console.log("isfav:", itemIsFavorite);
+
     setIsFavorite(Boolean(itemIsFavorite));
     navigation.setOptions({
       headerRight: () => (
         <Pressable
           android_ripple={{ color: "rgba(255,255,255,0.3)" }}
           onPress={() => {
-            if (isFavorite) {
+            if (Boolean(itemIsFavorite)) {
               setReason(
-                favoriteItems.find((item) => item.id === product.id)[0].reason
+                favoriteItems.find((item) => item.id === product.id).reason
               );
             }
             setModalVisible(true);
