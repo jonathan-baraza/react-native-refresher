@@ -10,12 +10,13 @@ import {
   Pressable,
   ToastAndroid,
   TextInput,
+  TouchableHighlight,
 } from "react-native";
 import { fetchProductDetails } from "../../../utils/products";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { Context } from "../../../context";
 const ProductDetails = () => {
-  const { addToFavorites } = useContext(Context);
+  const { addToFavorites, favorites } = useContext(Context);
   const route = useRoute();
   const { itemId } = route.params;
   //alternatively
@@ -25,6 +26,7 @@ const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
   const [modalVisible, setModalVisible] = useState(false);
   const [reason, setReason] = useState("");
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const fetchProduct = async () => {
     try {
@@ -38,20 +40,34 @@ const ProductDetails = () => {
   };
 
   useEffect(() => {
+    fetchProduct();
+    if (favorites) {
+      const itemIsFavorite = favorites?.indexOf(
+        (item) => item.id === product.id
+      );
+      setIsFavorite(itemIsFavorite !== -1);
+    }
+  }, [favorites]);
+
+  useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Button
-          title="Favorites"
+        <Pressable
+          android_ripple={{ color: "rgba(255,255,255,0.3)" }}
           onPress={() => {
             setModalVisible(true);
           }}
+          className={`${
+            isFavorite ? "bg-yellow-400" : "bg-[#007acc]"
+          } rounded-lg p-2`}
         >
-          <Text>Favorite</Text>
-        </Button>
+          <Text className="text-white">
+            {!isFavorite ? "Add to favorites" : "Update favorite"}
+          </Text>
+        </Pressable>
       ),
     });
-    fetchProduct();
-  }, []);
+  }, [isFavorite]);
 
   const handleAddToFavorite = async () => {
     if (!reason)
@@ -60,6 +76,7 @@ const ProductDetails = () => {
         ToastAndroid.SHORT
       );
     addToFavorites({ ...product, reason });
+    setIsFavorite(true);
     setReason("");
     setModalVisible(false);
 
@@ -148,7 +165,7 @@ const ProductDetails = () => {
             >
               <View className="h-[35vh] rounded-xl my-auto mx-8 bg-white shadow-2xl p-3 border  border-gray-100">
                 <Text className="text-center mx-auto font-bold text-base mt-2 mb-3">
-                  Adding to favories
+                  {!isFavorite ? " Adding to favories" : "Update reason"}
                 </Text>
                 <TextInput
                   className="border  h-[55%] border-gray-100 rounded-xl p-2"
@@ -165,10 +182,14 @@ const ProductDetails = () => {
                     <Text className="text-white">Close</Text>
                   </Pressable>
                   <Pressable
-                    className="bg-green-500 w-[40%] text-center flex items-center rounded-xl p-2 cursor-pointer "
+                    className={`bg-${
+                      !isFavorite ? "green" : "yellow"
+                    }-500 w-[40%] text-center flex items-center rounded-xl p-2 cursor-pointer `}
                     onPress={handleAddToFavorite}
                   >
-                    <Text className="text-white">Add</Text>
+                    <Text className="text-white">
+                      {!isFavorite ? "Add" : "Update"}
+                    </Text>
                   </Pressable>
                 </View>
               </View>
