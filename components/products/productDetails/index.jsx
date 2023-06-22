@@ -40,16 +40,23 @@ const ProductDetails = () => {
   };
 
   useEffect(() => {
-    fetchProduct();
+    if (product) {
+      checkFavorite();
+    }
+  }, [product]);
 
-    const itemIsFavorite = favoriteItems?.find(
+  const checkFavorite = async () => {
+    const itemIsFavorite = await favoriteItems.find(
       (item) => item.id === product.id
     );
-
+    console.log("favoriteItems");
+    console.log(favoriteItems);
+    console.log("product");
+    console.log(product);
+    console.log("productId");
+    console.log(product.id);
+    console.log("isfav:", itemIsFavorite);
     setIsFavorite(Boolean(itemIsFavorite));
-  }, [favoriteItems]);
-
-  useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
         <Pressable
@@ -63,16 +70,20 @@ const ProductDetails = () => {
             setModalVisible(true);
           }}
           className={`${
-            isFavorite ? "bg-yellow-400" : "bg-[#007acc]"
+            Boolean(itemIsFavorite) ? "bg-yellow-400" : "bg-[#007acc]"
           } rounded-lg p-2`}
         >
           <Text className="text-white">
-            {!isFavorite ? "Add to favorites" : "Update favorite"}
+            {!Boolean(itemIsFavorite) ? "Add to favorites" : "Update favorite"}
           </Text>
         </Pressable>
       ),
     });
-  }, [isFavorite]);
+  };
+
+  useEffect(() => {
+    fetchProduct();
+  }, [favoriteItems]);
 
   const handleAddToFavorite = async () => {
     if (!reason)
