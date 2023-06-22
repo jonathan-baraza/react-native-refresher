@@ -9,8 +9,10 @@ const Favorites = () => {
       {favoriteItems.length > 0 ? (
         <FlatList
           data={favoriteItems}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <ProductItem product={item} />}
+          keyExtractor={(item, index) => index}
+          renderItem={({ item }) => (
+            <ProductItem product={item} isFavorite={true} />
+          )}
         />
       ) : (
         <View className="flex-1 items-center justify-center px-4">

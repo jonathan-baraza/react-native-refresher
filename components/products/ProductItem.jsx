@@ -1,7 +1,7 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, isFavorite = false }) => {
   return (
     <View className=" space-x-2 w-full flex-row border-b border-b-gray-300 py-2">
       <Image
@@ -12,7 +12,7 @@ const ProductItem = ({ product }) => {
       <View className=" w-3/4 p-2 items-start justify-start">
         <Text className="font-bold text-lg w-full">{product.title}</Text>
         <Text className="text-gray-500 text-xs w-full">
-          {product.description}
+          {!isFavorite ? product.description : product.reason}
         </Text>
       </View>
     </View>
