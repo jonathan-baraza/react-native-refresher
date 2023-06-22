@@ -1,3 +1,4 @@
+import { ToastAndroid } from "react-native";
 import { fetchAllProducts } from "../utils/products";
 import { createContext, useState, useEffect } from "react";
 export const Context = createContext(null);
@@ -5,11 +6,15 @@ export const Context = createContext(null);
 const ProductContext = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [favoriteItems, setFavoriteItems] = useState([]);
+  const [favoriteItems, setFavoriteItems] = useState([
+    "fav one",
+    "fav two",
+    "fav three",
+  ]);
 
-  const addToFavorites=()=>{
-    
-  }
+  const addToFavorites = () => {
+    ToastAndroid.show("Added to favorites", ToastAndroid.SHORT);
+  };
   const fetchProducts = async () => {
     const products = await fetchAllProducts();
     if (products) {
@@ -23,7 +28,9 @@ const ProductContext = ({ children }) => {
     fetchProducts();
   }, []);
   return (
-    <Context.Provider value={{ products, loading }}>
+    <Context.Provider
+      value={{ products, loading, favoriteItems, addToFavorites }}
+    >
       {children}
     </Context.Provider>
   );
