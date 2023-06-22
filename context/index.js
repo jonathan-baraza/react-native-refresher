@@ -5,6 +5,11 @@ export const Context = createContext(null);
 const ProductContext = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [favoriteItems, setFavoriteItems] = useState([]);
+
+  const addToFavorites=()=>{
+    
+  }
   const fetchProducts = async () => {
     const products = await fetchAllProducts();
     if (products) {
