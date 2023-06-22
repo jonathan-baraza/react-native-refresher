@@ -60,6 +60,7 @@ const ProductDetails = () => {
         ToastAndroid.SHORT
       );
     addToFavorites({ ...product, reason });
+    setReason("");
     setModalVisible(false);
 
     //test redirect after adding
