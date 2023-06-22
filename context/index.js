@@ -11,10 +11,15 @@ const ProductContext = ({ children }) => {
   const addToFavorites = (product) => {
     const elementExists = favoriteItems.find((item) => item.id === product.id);
     if (elementExists) {
-      return ToastAndroid.show(
-        "Product already in favorites",
-        ToastAndroid.SHORT
+      setFavoriteItems(
+        favoriteItems.map((item) => {
+          if (item.id === product.id) {
+            return product;
+          }
+          return item;
+        })
       );
+      return ToastAndroid.show("Favorite updated", ToastAndroid.SHORT);
     }
     setFavoriteItems([product, ...favoriteItems]);
     ToastAndroid.show("Added to favorites", ToastAndroid.SHORT);
