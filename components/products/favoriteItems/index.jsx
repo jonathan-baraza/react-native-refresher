@@ -1,4 +1,4 @@
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, Pressable } from "react-native";
 import { useContext } from "react";
 import { Context } from "../../../context";
 import ProductItem from "../ProductItem";
@@ -11,7 +11,9 @@ const Favorites = () => {
           data={favoriteItems}
           keyExtractor={(item, index) => index}
           renderItem={({ item }) => (
-            <ProductItem product={item} isFavorite={true} />
+            <Pressable>
+              <ProductItem product={item} isFavorite={true} />
+            </Pressable>
           )}
         />
       ) : (
