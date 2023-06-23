@@ -26,7 +26,6 @@ const AnimationIndex = () => {
     Animated.timing(boxOpacityAnimationValue, {
       duration: 1000,
       toValue: 0,
-      delay: 200,
       useNativeDriver: true,
     }).start();
     // setIsVisible(false);
