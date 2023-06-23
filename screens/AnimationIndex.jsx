@@ -20,6 +20,14 @@ const AnimationIndex = () => {
       useNativeDriver: true,
     }).start();
   };
+  const handleFadeOutBox = () => {
+    Animated.timing(boxOpacityAnimationValue, {
+      duration: 1000,
+      toValue: 0,
+      delay: 200,
+      useNativeDriver: true,
+    }).start();
+  };
 
   const opacityStyle = {
     opacity: boxOpacityAnimationValue,
@@ -43,12 +51,12 @@ const AnimationIndex = () => {
         <Text className="text-white">Fade In Box</Text>
       </TouchableOpacity>
 
-      {/* <TouchableOpacity
+      <TouchableOpacity
         onPress={handleFadeOutBox}
         className="bg-[#007acc] p-3 rounded px-6"
       >
         <Text className="text-white">Fade Out Box</Text>
-      </TouchableOpacity> */}
+      </TouchableOpacity>
     </View>
   );
 };
