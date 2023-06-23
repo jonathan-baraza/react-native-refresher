@@ -1,10 +1,15 @@
-import { View, Text, StyleSheet, StatusBar } from "react-native";
+import { View, Text, StyleSheet, StatusBar, Animated, Button } from "react-native";
 import React from "react";
 
 const AnimationIndex = () => {
   return (
-    <View style={styles.container} className="flex-1">
-      <Text>AnimationIndex</Text>
+    <View
+      style={styles.container}
+      className="flex-1 items-center justify-center"
+    >
+      <Animated.View className="w-[200px] h-[200px] bg-red-400 mb-12"></Animated.View>
+
+      <Button title="Fade this box p-3"/>
     </View>
   );
 };
