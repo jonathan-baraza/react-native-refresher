@@ -7,10 +7,11 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const AnimationIndex = () => {
   const boxOpacityAnimationValue = useRef(new Animated.Value(0)).current;
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleFadeInBox = () => {
     Animated.timing(boxOpacityAnimationValue, {
@@ -19,6 +20,7 @@ const AnimationIndex = () => {
       delay: 200,
       useNativeDriver: true,
     }).start();
+    // setIsVisible(true);
   };
   const handleFadeOutBox = () => {
     Animated.timing(boxOpacityAnimationValue, {
@@ -27,6 +29,7 @@ const AnimationIndex = () => {
       delay: 200,
       useNativeDriver: true,
     }).start();
+    // setIsVisible(false);
   };
 
   const opacityStyle = {
@@ -46,7 +49,7 @@ const AnimationIndex = () => {
 
       <TouchableOpacity
         onPress={handleFadeInBox}
-        className="bg-[#007acc] p-3 rounded px-6"
+        className={`bg-[#007acc] p-3 rounded px-6 `}
       >
         <Text className="text-white">Fade In Box</Text>
       </TouchableOpacity>
