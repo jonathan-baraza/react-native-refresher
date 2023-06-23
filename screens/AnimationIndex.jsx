@@ -5,6 +5,7 @@ import {
   StatusBar,
   Animated,
   Button,
+  TouchableOpacity,
 } from "react-native";
 import { useRef } from "react";
 
@@ -27,7 +28,7 @@ const AnimationIndex = () => {
   return (
     <View
       style={styles.container}
-      className="flex-1 items-center justify-center"
+      className="flex-1 items-center justify-center space-y-3"
     >
       <Animated.View
         style={opacityStyle}
@@ -35,7 +36,19 @@ const AnimationIndex = () => {
         className="w-[200px] h-[200px] bg-red-400 mb-12"
       ></Animated.View>
 
-      <Button onPress={handleFadeInBox} title="Fade this box p-3" />
+      <TouchableOpacity
+        onPress={handleFadeInBox}
+        className="bg-[#007acc] p-3 rounded px-6"
+      >
+        <Text className="text-white">Fade In Box</Text>
+      </TouchableOpacity>
+
+      {/* <TouchableOpacity
+        onPress={handleFadeOutBox}
+        className="bg-[#007acc] p-3 rounded px-6"
+      >
+        <Text className="text-white">Fade Out Box</Text>
+      </TouchableOpacity> */}
     </View>
   );
 };
