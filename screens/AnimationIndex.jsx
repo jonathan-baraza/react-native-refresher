@@ -1,7 +1,16 @@
-import { View, Text, StyleSheet, StatusBar, Animated, Button } from "react-native";
-import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  StatusBar,
+  Animated,
+  Button,
+} from "react-native";
+import { useRef } from "react";
 
 const AnimationIndex = () => {
+  const boxOpacityAnimationValue = useRef(new Animated.Value(0));
+  
   return (
     <View
       style={styles.container}
@@ -9,7 +18,7 @@ const AnimationIndex = () => {
     >
       <Animated.View className="w-[200px] h-[200px] bg-red-400 mb-12"></Animated.View>
 
-      <Button title="Fade this box p-3"/>
+      <Button title="Fade this box p-3" />
     </View>
   );
 };
