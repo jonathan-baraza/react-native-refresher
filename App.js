@@ -18,6 +18,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ProductDetails from "./components/products/productDetails";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ProductContext from "./context";
+import AnimationIndex from "./screens/AnimationIndex";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -42,29 +43,33 @@ const BottomTabs = () => {
 };
 
 const App = () => {
-  return (
-    <ProductContext>
-      <View className="flex-1" style={styles.container}>
-        <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen
-              options={{ headerShown: false }}
-              name="bottomTabs"
-              component={BottomTabs}
-            />
-            <Stack.Screen
-              options={{
-                title: "Product",
-              }}
-              name="productDetails"
-              component={ProductDetails}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </View>
-    </ProductContext>
-  );
+  return <AnimationIndex />;
 };
+
+// const App = () => {
+//   return (
+//     <ProductContext>
+//       <View className="flex-1" style={styles.container}>
+//         <NavigationContainer>
+//           <Stack.Navigator>
+//             <Stack.Screen
+//               options={{ headerShown: false }}
+//               name="bottomTabs"
+//               component={BottomTabs}
+//             />
+//             <Stack.Screen
+//               options={{
+//                 title: "Product",
+//               }}
+//               name="productDetails"
+//               component={ProductDetails}
+//             />
+//           </Stack.Navigator>
+//         </NavigationContainer>
+//       </View>
+//     </ProductContext>
+//   );
+// };
 
 const styles = StyleSheet.create({
   container: {
