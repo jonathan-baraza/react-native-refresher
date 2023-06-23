@@ -38,6 +38,9 @@ const AnimationIndex = () => {
       delay: 200,
       useNativeDriver: true,
     }).start(() => {
+      //first way to set value on callback
+      // boxOpacityAnimationValue.setValue(0.5);
+      //another way
       Animated.timing(boxOpacityAnimationValue, {
         delay: 1000,
         duration: 1000,
