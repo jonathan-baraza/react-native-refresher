@@ -31,7 +31,21 @@ const AnimationIndex = () => {
     // setIsVisible(false);
   };
 
-  const handleCallbackMethod = () => {};
+  const handleCallbackMethod = () => {
+    Animated.timing(boxOpacityAnimationValue, {
+      duration: 1000,
+      toValue: 1,
+      delay: 200,
+      useNativeDriver: true,
+    }).start(() => {
+      Animated.timing(boxOpacityAnimationValue, {
+        delay: 1000,
+        duration: 1000,
+        toValue: 0,
+        useNativeDriver: true,
+      }).start();
+    });
+  };
 
   const opacityStyle = {
     opacity: boxOpacityAnimationValue,
