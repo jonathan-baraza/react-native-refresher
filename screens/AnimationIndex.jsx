@@ -31,6 +31,8 @@ const AnimationIndex = () => {
     // setIsVisible(false);
   };
 
+  const handleCallbackMethod = () => {};
+
   const opacityStyle = {
     opacity: boxOpacityAnimationValue,
   };
@@ -58,6 +60,12 @@ const AnimationIndex = () => {
         className="bg-[#007acc] p-3 rounded px-6"
       >
         <Text className="text-white">Fade Out Box</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={handleCallbackMethod}
+        className="bg-[#007acc] p-3 rounded px-6"
+      >
+        <Text className="text-white">handle callback timing method</Text>
       </TouchableOpacity>
     </View>
   );
